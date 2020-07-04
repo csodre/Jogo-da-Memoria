@@ -1,0 +1,7 @@
+Largura Card 160px;
+8 cards por fileira;
+5px de margin left;
+
+Altura Card 240px;
+2 cards por colula;
+15px margim top;
