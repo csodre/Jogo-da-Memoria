@@ -6,8 +6,7 @@
     var ImgMatchSign = document.querySelector("#ImgMatchSign");
 	var troca = document.querySelector("#Tempo");
 	var time=0;
-	var status = false;
-
+	var status;
     var matches = 0;
 
     //criando as imagens
@@ -22,8 +21,7 @@
    
 	
 	StartGame();
-	ContTime();
-	
+		
     
     function StartGame()
     {
@@ -35,7 +33,7 @@
 		ModalGameOver.style.zIndex=-1;
         ModalGameOver.removeEventListener("click",StartGame,false);
 		time = 0;
-		status = true;
+		ContTime();
 		
         var frontFace= document.getElementsByClassName("front");
 		var backFace= document.getElementsByClassName("back");
@@ -110,9 +108,9 @@
                     matches++;
                     flippedCards=[];
                     if(matches == 8)
-                    {
-						status = false;
-                        GameOver();
+                    {							
+						StopTime();
+						GameOver();
                     }
                 }
                         
@@ -151,16 +149,17 @@
     }
 	
 	function ContTime()
-	{				
-		if(status)
-			{
-				setInterval(function(){
-				time++;		
+	{
+		status = setInterval(function(){
+		time++;		
 		
-				troca.innerHTML ="Ja passou "+time+" segundo!";			
-				},1000);				
-			}else
-				time =0;
+		troca.innerHTML ="Ja passou "+time+" segundos!";			
+		},1000);				
+			
+	}
+	function StopTime(){
+		troca.innerHTML ="Seu tempo foi "+time+" segundos!";
+		clearInterval(status);
 	}
 	
 }());
