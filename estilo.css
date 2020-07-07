@@ -39,7 +39,7 @@ body{
 }
 
 .back{
-    background-color: hotpink;/*Coloque aqui a img back*/
+    background-image:url("img/carta.png");/*Coloque aqui a img back*/
 }
 .front{
     transform: rotateY(-180deg);
